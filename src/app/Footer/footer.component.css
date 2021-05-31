@@ -42,20 +42,36 @@ li a:hover{
 .footer_content{
     padding: 0 20px 0 40px;
 }
-@media (min-width: 400px) {
+@media (min-width:300px){
+  .apps_col{
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 576px) {
   .apps_col{
     float: left;
     width: 100%;
   }
 }
 
-@media (min-width: 700px) {
+
+@media (min-width: 768px) { 
   .apps_col{
     float: left;
     width: 50%;
   }
-}
-@media (min-width: 1000px) {
+ }
+
+
+@media (min-width: 992px) {
+  .apps_col{
+    float: left;
+    width: 25%;
+  }
+ }
+
+@media (min-width: 1200px) {
   .apps_col{
     float: left;
     width: 25%;
