@@ -1,0 +1,13 @@
+.container-fluid{
+    margin:120px 0 0 0 ;
+    padding: 0;
+   text-align: center;
+   justify-content: center;
+}
+h3{
+    padding: 50px 0;
+}
+img{
+    width: inherit;
+    
+}

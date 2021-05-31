@@ -1,0 +1,119 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 p-0 pb-5 order-lg-last align-items-stretch">
+            <div class="quotation-header d-flex">
+                <h2 class="ml-3 p-2">Logistics</h2>
+                <h4 class="ml-auto p-3">Transparent | Instant | 24/7 support</h4>
+            </div>
+            <form #quotationForm="ngForm" (ngSubmit)="getValue(quotationForm.value)" >
+                <div class="form-row my-3">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text" for="Origin">Origin</div>
+                            </div>
+                            <select class="form-control" name="Origin" required [(ngModel)]="origin" (click)="onclicked()">
+                                <option disabled>--SELECT--</option>
+                                <option>ICD Tughlakabad</option>
+                            </select>
+                          </div>
+                          <div class="position-absolute" *ngIf="origin===''&& originInputclicked===true"><p style="color: red;">Please select an Origin</p></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">Destination</div>
+                            </div>
+                            <input type="text" class="form-control" list="DestinationInput" placeholder="Area Name/ Zip Code" (click)="onDestinationInputClick()" name="Destination" [(ngModel)]="destination">
+                            <datalist id="DestinationInput" >
+                                <option *ngFor="let dest of destinationName" >{{dest.name}}
+                              </datalist>
+                          </div>
+                          <div class="position-absolute" *ngIf="destination==='' && destinationInputClicked==true"><p style="color: red;">Please select Destination</p></div>
+                    </div>
+                </div>
+                <div class="form-row my-5">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">Offloading</div>
+                            </div>
+                            <select class="form-control" name="Offloading" [(ngModel)]="offloading">
+                                <option selected disabled>--SELECT--</option>
+                                <option>ICD Tughlakabad</option>
+                                <option>Dadri</option>
+                            </select>
+                        </div>
+                        <div class="position-absolute" *ngIf="offloading===''"><p style="color: red;">Please select container Offloading</p></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">Weight</div>
+                            </div>
+                            <input class="form-control" required>
+                            <select class="from-control" name="Weight"  id="Weight" [(ngModel)]="weight">
+                                <option selected>Kgs</option>
+                                <option>Tons</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mb-5 ">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">Container Type</div>
+                            </div>
+                            <input type="text" class="form-control" list="ContainerTypeInput" placeholder="Category" name="Containertype" ngModel>
+                            <datalist id="ContainerTypeInput">
+                                <option value="20' DRY CONTAINER">
+                                <option value="20' DRY HEAVY DUTY CONTAINER">
+                                <option value="20' FLAT RACK CONTAINER">
+                                <option value="40' DRY CONTAINER">
+                                <option value="40' DRY HEAVY DUTY CONTAINER">
+                                <option value="40' FLAT RACK CONTAINER">
+                                
+                              </datalist>
+                          </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button  type="submit" class="btn btn-info px-5" [disabled]="origin===''||offloading===''||destination===''" data-toggle="modal" data-target="#Search-Result">Search </button>
+                </div>
+                
+            </form>
+        </div>
+        <div class="col-lg-4 left-content  align-items-stretch">
+          <div class="inner-content">
+            <h1>Sharma Road Lines</h1>
+            <h4>THE BEST EXPERIENCE</h4>
+            <div class="main-white-button">
+            <a href="/quotation">Get Quotation</a></div>
+          </div>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>
+
+<div class="modal fade" id="Search-Result" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Search-Result-Header">{{origin}} ---> {{destination}} ---> {{offloading}}</h5>
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>  
+      </div>
+      <div class="modal-body">
+        <app-quotation-form></app-quotation-form>
+        <div class="modalFooter">
+          <h3>Want to Book </h3>
+          <span>Call Us On Ph: 9212530219</span><br>
+          <span><a class="btn btn-info" href="/register">Register for Free</a> to Book Online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

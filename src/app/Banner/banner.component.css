@@ -1,0 +1,39 @@
+.row{
+    margin-top: 100px;
+}
+.inner-content{
+    margin: 150px 0 ;
+}
+.left-content{
+    background:url(/assets/images/top-left-bg.jpg);  
+    font-family:'Brush Script MT';
+    text-align: center;
+}
+.left-content a{
+    text-decoration: none;
+    color: #F1674B;
+    font-size: 1rem;
+    font-weight: 550;
+}
+.main-white-button{
+    margin: 15px auto;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    font-family: Tahoma, sans-serif;
+    width: 200px;
+    padding: 5px 35px;
+    background: white;
+    border: 1px solid white;
+}
+.left-content h1{
+    color:white;
+}
+.left-content h4{
+    font-family: sans-serif;
+    color: white;
+}
+
+.right-content{
+    margin: 0;
+    padding: 0;
+}
